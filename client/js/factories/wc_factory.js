@@ -3,11 +3,10 @@ wcApp.factory('wcFactory', function($http, $location){
 	return {
 		runApi: function(data, callback){
 			    	obj.city = data;
-				console.log(obj.city, "2");
-				console.log("This is obj " , obj);
+				// console.log(obj.city, "2");
+				// console.log("This is obj " , obj);
 			$http.post('/users/fetch', obj).success(function(response){
 				callback(response);
-				console.log("I made It!!!!!!", callback(response));
 			})
 		},
 		getUsers: function(callback){
