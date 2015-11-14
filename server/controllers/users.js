@@ -2,6 +2,10 @@ var User = mongoose.model('User');
 var travel = require('request');
 var http = require('http');
 
+
+
+
+
 module.exports = (function() {
 	return {
 		index: function(request, response){
@@ -92,19 +96,39 @@ module.exports = (function() {
 				console.log(that.result1);
 				// EventEmitter.call(this);
 
-				// profileEmitter = this;
+// *************************** ROVSHEN ****************************
 
-			travel.get('http://api.openweathermap.org/data/2.5/weather?q=' + that.result1 + '&units=imperial&APPID=9491e0f2bd9ec591e2f391ec993acaf8',function(error, response,body){
-				if (error)
-					console.log(error);
-				else {
-					console.log("weather stuff", body);
-					var weather = (JSON.parse(body));
-					// response(body);
-				}
-				console.log('here!!!!!!!!', weather.sys);
-				console.log("coord", 'Lat:', weather.coord.lat, 'Lon:', weather.coord.lon);
+			function travelGet (data, callback){
+				travel.get('http://api.openweathermap.org/data/2.5/weather?q=' + data + '&units=imperial&APPID=9491e0f2bd9ec591e2f391ec993acaf8',function(error, res){
+					if (error)
+						console.log(error);
+					else {;
+						callback(res.body);
+					}
+				});
+			}
+
+			travelGet(that.result1, function(q){
+				response.json(q);
 			});
+
+// ****************************************************************
+
+
+			// function x (data){
+			// 	// profileEmitter = this;
+			// 	travel.get('http://api.openweathermap.org/data/2.5/weather?q=' + data + '&units=imperial&APPID=9491e0f2bd9ec591e2f391ec993acaf8',function(error, res){
+			// 		if (error)
+			// 			console.log(error);
+			// 		else {
+			// 			// console.log("weather stuff", body);
+			// 			// var weather = (JSON.parse(body));
+			// 			return res.body;
+			// 		}
+			// 		// console.log('here!!!!!!!!', weather.sys);
+			// 		// console.log("coord", 'Lat:', weather.coord.lat, 'Lon:', weather.coord.lon);
+			// 	});
+			// }
 
 				// passCountry(body['sys'].country);
 

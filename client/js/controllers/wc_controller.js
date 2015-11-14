@@ -7,7 +7,9 @@ wcApp.controller('wcController', function($scope, $http, wcFactory){
 
 	that.fetch = function() {
 		console.log(that.result1,"1");
-		wcFactory.runApi(that.result1);
+		wcFactory.runApi(that.result1, function(res){
+			console.log("DATA HERE FROM ROVSHEN U REQUESTED !!!:" + res);
+		});
 
 	};
 

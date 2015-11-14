@@ -5,9 +5,7 @@ module.exports = function(app) {
 
 	// - - - User Api Request - - -
 	.post('/users/fetch', function(request, response) {
-		console.log("This is req.body" , request.body); console.log("3"); 
-		users.fetch(request, response);
-		// console.log("RESPONSEEEE", response);
+		users.fetch(request, response)
 	})
 
     	// Index
