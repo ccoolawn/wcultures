@@ -1,0 +1,13 @@
+<div class="container" id="results">
+	<div id="weather">
+				<h4>{{ Bob.recipies.attribution.text }}</h4>
+				<div id="recipies">
+					<img src="{{ Bob.recipies.attribution.logo }}" alt="logo">
+						<div ng-repeat=" x in Bob.recipies.matches">
+							<div class="col-md-3" ><p>{{ x.recipeName }}
+								<img src="{{ x.smallImageUrls[0]}}" alt="foodpic"></p>
+							</div>
+						</div>
+				</div>
+			</div>
+</div>

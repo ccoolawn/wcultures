@@ -1,0 +1,16 @@
+	<div class="buffer"></div>
+	<h2>Here are your {{ Bob.weather.name }} results</h2>
+		<div id="weather">
+			<div class="col-md-6" id="weathdata">
+				<div id="place"><p><h3>Local Weather</h3></p></div>
+				<div id="currtemp"><p><h4>The current tempreture is {{ Bob.weather.main.temp }}&deg;F.</h4></p></div>
+				<div id="hitemp"><p><h4>The high for today is {{ Bob.weather.main.temp_max }}&deg;F.</h4></p></div>
+				<div id="descrip"><p><h4>{{ Bob.weather.weather[0].description }}</h4></p></div>
+			</div>
+			<div id="weathericon" class="col-md-4"><p><img ng-src="img/weather/{{ Bob.weather.weather[0].icon }}.png" alt="weathericon"></p></div>
+		</div>
+		<div id="gmap"></div>
+
+
+
+
