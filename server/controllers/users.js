@@ -97,21 +97,13 @@ module.exports = (function() {
 				// EventEmitter.call(this);
 
 // *************************** ROVSHEN ****************************
-
-			function travelGet (data, callback){
-				travel.get('http://api.openweathermap.org/data/2.5/weather?q=' + data + '&units=imperial&APPID=9491e0f2bd9ec591e2f391ec993acaf8',function(error, res){
-					if (error)
-						console.log(error);
+				travel.get('http://api.openweathermap.org/data/2.5/weather?q=' + that.result1 + '&units=imperial&APPID=9491e0f2bd9ec591e2f391ec993acaf8',function(err, res){
+					if (err)
+						console.log(err);
 					else {;
-						callback(res.body);
+						response.json(res.body);
 					}
 				});
-			}
-
-			travelGet(that.result1, function(q){
-				response.json(q);
-			});
-
 // ****************************************************************
 
 
