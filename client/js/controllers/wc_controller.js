@@ -8,9 +8,10 @@ wcApp.controller('wcController', function($scope, $http, wcFactory){
 	that.fetch = function() {
 		console.log(that.result1,"1");
 		wcFactory.runApi(that.result1, function(res){
-			console.log("DATA HERE FROM ROVSHEN U REQUESTED !!!:" + res);
+			that.weather = (JSON.parse(res));
+			// console.log("DATA HERE FROM ROVSHEN U REQUESTED !!!:" + that.weather);
+			console.log(that.weather.name);
 		});
-
 	};
 
 	var getUsers = function(){
